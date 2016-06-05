@@ -45,3 +45,13 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'rspec-collection_matchers'
+  gem 'poltergeist'
+  gem 'database_cleaner'
+  gem 'shoulda'
+  gem 'factory_girl_rails'
+  gem 'faker'
+end
