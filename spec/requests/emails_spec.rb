@@ -11,10 +11,10 @@ describe 'emails API' do
            email_to_json(email.address,
                          email.email_type,
                          email.event,
-                         email.timestamp),
+                         email.timestamp.to_i),
            request_headers
 
-      expect(response.status).to eq 201
+      expect(response.status).to eq 200
       expect(Email.last.address).to eq email.address
       expect(Email.last.email_type).to eq email.email_type
       expect(Email.last.event).to eq email.event
