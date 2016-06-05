@@ -12,6 +12,8 @@
 * Ruby on Rails
 * RSpec-Capybara
 * Factory Girl
+* PostgreSQL
+* ActiveRecord
 
 ## Author :cat:
 Junyuan Xue

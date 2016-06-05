@@ -1,8 +1,8 @@
-def set_email_params(address, type, event, timestamp)
+def set_email_params(address, email_type, event, timestamp)
   { 'email':
     {
       'address': address,
-      'type': type,
+      'email_type': email_type,
       'event': event,
       'timestamp': timestamp
     }
