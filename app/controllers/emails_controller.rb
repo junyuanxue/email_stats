@@ -1,14 +1,16 @@
 class EmailsController < ApplicationController
+  respond_to :json
 
   def create
-    Email.create(email_params)
+    email = Email.new(email_params)
+    respond_with email if email.save
   end
 
   private
 
   def email_params
     params.require(:email).permit(:address,
-                                  :type,
+                                  :email_type,
                                   :event,
                                   :timestamp)
   end
