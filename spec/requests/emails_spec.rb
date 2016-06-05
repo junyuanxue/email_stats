@@ -8,10 +8,10 @@ describe 'emails API' do
 
     it 'creates a new email' do
       post '/emails',
-           set_email_params(email.address,
-                            email.email_type,
-                            email.event,
-                            email.timestamp),
+           email_to_json(email.address,
+                         email.email_type,
+                         email.event,
+                         email.timestamp),
            request_headers
 
       expect(response.status).to eq 201
