@@ -17,7 +17,7 @@ describe 'emails API' do
       expect(response.status).to eq 201
       expect(Email.last.address).to eq email.address
       expect(Email.last.type).to eq email.type
-      expect(Email.last.evet).to eq email.event
+      expect(Email.last.event).to eq email.event
       expect(Email.last.timestamp).to eq email.timestamp
     end
   end
