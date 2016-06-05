@@ -1,0 +1,24 @@
+require 'rails_helper'
+
+describe 'emails API' do
+  describe 'POST /emails' do
+    let!(:email) { FactoryGirl.build(:email) }
+    let!(:request_headers) { { 'Accept': 'application/json',
+                               'Content-Type': 'application/json' } }
+
+    it 'creates a new email' do
+      post '/emails',
+           set_email_params(email.address,
+                            email.type,
+                            email.event,
+                            email.timestamp),
+           request_headers
+
+      expect(response.status).to eq 201
+      expect(Email.last.address).to eq email.address
+      expect(Email.last.type).to eq email.type
+      expect(Email.last.evet).to eq email.event
+      expect(Email.last.timestamp).to eq email.timestamp
+    end
+  end
+end
