@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'display email statistics' do
+describe 'Email statistics features' do
   describe 'displays email count by event' do
     before do
       3.times { FactoryGirl.create(:email, event: 'send') }
@@ -27,10 +27,10 @@ describe 'display email statistics' do
     before do
       3.times { FactoryGirl.create(:email, email_type: 'Order', event: 'send') }
       2.times { FactoryGirl.create(:email, email_type: 'Order', event: 'open') }
-      1.times { FactoryGirl.create(:email, email_type: 'Order', event: 'clicked') }
+      1.times { FactoryGirl.create(:email, email_type: 'Order', event: 'click') }
       5.times { FactoryGirl.create(:email, email_type: 'Shipment', event: 'send') }
       4.times { FactoryGirl.create(:email, email_type: 'Shipment', event: 'open') }
-      3.times { FactoryGirl.create(:email, email_type: 'Shipment', event: 'clicked') }
+      3.times { FactoryGirl.create(:email, email_type: 'Shipment', event: 'click') }
 
       visit '/'
     end
@@ -42,7 +42,7 @@ describe 'display email statistics' do
       end
     end
 
-    it 'displas click rateper email type' do
+    it 'displays click rate per email type' do
       within '.click-rate' do
         expect(page).to have_content 'Order: 33.33%'
         expect(page).to have_content 'Shipment: 60.00%'

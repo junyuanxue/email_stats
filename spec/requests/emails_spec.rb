@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'emails API' do
+describe 'Emails API' do
   describe 'POST /emails' do
     let!(:email) { FactoryGirl.build(:email) }
     let!(:request_headers) { { 'Accept': 'application/json',

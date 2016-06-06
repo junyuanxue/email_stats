@@ -25,7 +25,7 @@ describe Email, type: :model do
     it 'calculates the open rate per email type' do
       3.times { FactoryGirl.create(:email, email_type: 'Order', event: 'send') }
       2.times { FactoryGirl.create(:email, email_type: 'Order', event: 'open') }
-      2.times { FactoryGirl.create(:email, email_type: 'Shipment', evet: 'open') }
+      2.times { FactoryGirl.create(:email, email_type: 'Shipment', event: 'open') }
       expect(Email.calculate_rate('open', 'Order')).to eq '66.67%'
     end
 
