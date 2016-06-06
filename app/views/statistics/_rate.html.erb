@@ -1,6 +1,6 @@
 <% @email_types.each do |email_type| %>
   <li>
-    <%= email_type.titleize %>:
+    <span class="email-type"><%= email_type.titleize %></span>:
     <%= Email.calculate_rate(event, email_type) %>
   </li>
 <% end %>

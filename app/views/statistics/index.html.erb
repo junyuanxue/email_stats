@@ -1,14 +1,14 @@
 <h1> Email Statistics </h1>
-<p> Emails sent: <%= Email.count_event('send') %> </p>
-<p> Emails opened: <%= Email.count_event('open') %> </p>
-<p> Number of clicks: <%= Email.count_event('click') %> </p>
+<p> Emails <span>sent</span>: <%= Email.count_event('send') %> </p>
+<p> Emails <span>opened</span>: <%= Email.count_event('open') %> </p>
+<p> Number of <span>clicks</span>: <%= Email.count_event('click') %> </p>
 
-<p> Open rate per email type: </p>
+<p> <span>Open</span> rate per email type: </p>
 <ul class="open-rate">
   <%= render partial: 'rate', locals: { event: 'open' }  %>
 </ul>
 
-<p> Click rate per email type: </p>
+<p> <span>Click</span> rate per email type: </p>
 <ul class="click-rate">
   <%= render partial: 'rate', locals: { event: 'click' }  %>
 </ul>
