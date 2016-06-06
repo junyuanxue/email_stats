@@ -23,4 +23,23 @@ describe 'display email statistics' do
     end
   end
 
+  describe 'displays open and click rates per email type' do
+    before do
+      3.times { FactoryGirl.create(:email, email_type: 'Order', event: 'send') }
+      2.times { FactoryGirl.create(:email, email_type: 'Order', event: 'open') }
+      1.times { FactoryGirl.create(:email, email_type: 'Order', event: 'clicked') }
+      5.times { FactoryGirl.create(:email, email_type: 'Shipment', event: 'send') }
+      4.times { FactoryGirl.create(:email, email_type: 'Shipment', event: 'open') }
+      3.times { FactoryGirl.create(:email, email_type: 'Shipment', event: 'clicked') }
+
+      visit '/'
+    end
+
+    it 'displays open rate per email type' do
+      within '.open-rate li' do
+        expect(page).to have_content 'Order: 66.67%'
+        expect(page).to have_content 'Shipment: 80.00%'
+      end
+    end
+  end
 end

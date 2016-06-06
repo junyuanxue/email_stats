@@ -23,14 +23,16 @@ describe Email, type: :model do
 
   describe 'calculate_rate' do
     it 'calculates the open rate per email type' do
-      2.times { FactoryGirl.create(:email, email_type: 'Order', event: 'open') }
       3.times { FactoryGirl.create(:email, email_type: 'Order', event: 'send') }
+      2.times { FactoryGirl.create(:email, email_type: 'Order', event: 'open') }
+      2.times { FactoryGirl.create(:email, email_type: 'Shipment', evet: 'open') }
       expect(Email.calculate_rate('open', 'Order')).to eq '66.67%'
     end
 
     it 'calculates the click rate per email type' do
+      4.times { FactoryGirl.create(:email, email_type: 'Shipment', event: 'send') }
       3.times { FactoryGirl.create(:email, email_type: 'Shipment', event: 'click') }
-      4.times { FactoryGirl.create(:email, email_type: 'Shipment', event:'send') }
+      3.times { FactoryGirl.create(:email, email_type: 'Order', event: 'click') }
       expect(Email.calculate_rate('click', 'Shipment')).to eq '75.00%'
     end
   end
