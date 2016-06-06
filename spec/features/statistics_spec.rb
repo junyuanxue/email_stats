@@ -11,15 +11,15 @@ describe 'display email statistics' do
     end
 
     it 'displays total number of emails sent' do
-      expect(page).to have_content 'Sent: 3'
+      expect(page).to have_content 'Emails sent: 3'
     end
 
     it 'displays total number of emails opened' do
-      expect(page).to have_content 'Opened: 2'
+      expect(page).to have_content 'Emails opened: 2'
     end
 
     it 'displays total number of emails clicked' do
-      expect(page).to have_content 'Clicked: 1'
+      expect(page).to have_content 'Number of clicks: 1'
     end
   end
 

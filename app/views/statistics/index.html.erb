@@ -1,0 +1,4 @@
+<h1> Email Statistics </h1>
+<p> Emails sent: <%= Email.count_event('send') %> </p>
+<p> Emails opened: <%= Email.count_event('open') %> </p>
+<p> Number of clicks: <%= Email.count_event('click') %> </p>
