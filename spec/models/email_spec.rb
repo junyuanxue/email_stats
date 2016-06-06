@@ -26,6 +26,7 @@ describe Email, type: :model do
       3.times { FactoryGirl.create(:email, email_type: 'Order', event: 'send') }
       2.times { FactoryGirl.create(:email, email_type: 'Order', event: 'open') }
       2.times { FactoryGirl.create(:email, email_type: 'Shipment', event: 'open') }
+
       expect(Email.calculate_rate('open', 'Order')).to eq '66.67%'
     end
 
@@ -33,6 +34,7 @@ describe Email, type: :model do
       4.times { FactoryGirl.create(:email, email_type: 'Shipment', event: 'send') }
       3.times { FactoryGirl.create(:email, email_type: 'Shipment', event: 'click') }
       3.times { FactoryGirl.create(:email, email_type: 'Order', event: 'click') }
+      
       expect(Email.calculate_rate('click', 'Shipment')).to eq '75.00%'
     end
   end
