@@ -12,9 +12,9 @@ This is a web app built with Ruby on Rails that receives and stores web hook dat
 
 ## Approach :thought_balloon:
 
-I started the project by test-driving the POST `/emails` route inside `emails_controller` to receive coming from the sample data generator, llirdnam. I used Active Record and PostgreSQL for my database. I then started writing class methods and relevant unit tests in the `Email` model to count the number of emails under each event and the open/click rate per email type.
+I started the project by test-driving the POST `/emails` route inside `emails_controller` to receive data coming from the sample data generator, llirdnam. I used Active Record and PostgreSQL for my database. I then started writing class methods and relevant unit tests in `Email` model to count the number of emails under each event and the open/click rate per email type.
 
-Once that's done I added another `statistics_controller` (with feature tests) to present results, as I think extracting statistics into a separate controller would potentially make the app more scalable and can be used to analyse data for other user activities such as website traffic.
+Once that's done I added a `statistics_controller` (with feature tests) to present results, as I think extracting statistics into a separate controller would potentially make the app more scalable and can be used to analyse data for other user activities such as website traffic.
 
 ## To run the app :arrow_forward:
 
@@ -36,7 +36,7 @@ In another tab, start the llirdnam listener (`go run listener.go`). And in a thi
 
 In your rail terminal you should see all the lovely emails data coming in! :)
 
-To view the email statistics, keep the app served up and visit `http://localhost:3000`.
+To view email statistics, keep the app served up and visit `http://localhost:3000`.
 
 ## Testing :white_check_mark:
 
