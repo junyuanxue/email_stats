@@ -36,14 +36,14 @@ describe 'display email statistics' do
     end
 
     it 'displays open rate per email type' do
-      within '.open-rate li' do
+      within '.open-rate' do
         expect(page).to have_content 'Order: 66.67%'
         expect(page).to have_content 'Shipment: 80.00%'
       end
     end
 
     it 'displas click rateper email type' do
-      with '.click-rate li' do
+      within '.click-rate' do
         expect(page).to have_content 'Order: 33.33%'
         expect(page).to have_content 'Shipment: 60.00%'
       end
